@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaInventario.AccesoDatos.Data;
+using SistemaInventario.AccesoDatos.Repositorio;
+using SistemaInventario.AccesoDatos.Repositorio.IRepositorio;
 namespace SistemaInventario
 {
     public class Program
@@ -18,6 +20,11 @@ namespace SistemaInventario
 
             // Add services to the container. Servicios
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();
+
+
+
 
             var app = builder.Build();
 
