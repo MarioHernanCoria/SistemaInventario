@@ -1,5 +1,6 @@
 ﻿using SistemaInventario.AccesoDatos.Data;
 using SistemaInventario.AccesoDatos.Repositorio.IRepositorio;
+using SistemaInventario.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
         private readonly SistemaInventarioContext _context;
         public IBodegaRepositorio Bodega {  get; private set; }
         public ICategoriaRepositorio Categoria { get; private set; }
+        public IMarcaRepositorio Marca { get; private set; }
 
 
         public UnidadTrabajo(SistemaInventarioContext context)
@@ -20,6 +22,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
             _context = context;
             Bodega = new BodegaRepositorio(_context);
             Categoria = new CategoriaRepositorio(_context);
+            Marca = new MarcaRepositorio(_context);
         }
 
         public void Dispose()
